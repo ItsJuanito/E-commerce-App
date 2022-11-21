@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'apps.product',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://web-production-b56e.up.railway.app']
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
