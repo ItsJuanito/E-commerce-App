@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Welcome | {% endblock %}
+
+{% block content %}
+    <div class="columns is-mobile is-multiline mb-6">
+        <div class="column is-12 has-text-centered mt-6 mb-6">
+            <h2 class="is-size-3">Newest Products</h2>
+        </div>
+    </div> 
+    <div class="columns is-mobile is-3 mb-6 product-list-item">
+        <!--<div class="column is-3 product-list-item">-->
+        {% for product in newest_products %}
+                <div class="box m-3" style="width: 250px; height: 325px;">
+                    <figure class="image is-4by3 mb-4">
+                        <img src="{{ product.get_thumbnail }}">
+                    </figure>
+                    <h2 class="subtitle">{{ product.title }}</h2>
+                    <h3 class="price is-size-6 mb-5">${{ product.price }}</h3>
+                    <a href="{% url 'product' product.category.slug product.slug %}" class="button is-dark is-uppercase">View</a>
+                </div>
+        {% endfor %}
+        <!--</div>-->
+    </div>       
+{% endblock %}
